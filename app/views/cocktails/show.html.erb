@@ -1,1 +1,7 @@
 <h1> <%= @cocktail.name %> </h1>
+
+<img src="<%= @cocktail.image %>" alt="">
+
+<%= link_to 'Set dose', new_cocktail_dose_path(@cocktail) %>
+
+<%= link_to 'Back', cocktails_path %>

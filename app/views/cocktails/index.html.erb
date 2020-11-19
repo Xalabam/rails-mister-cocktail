@@ -5,7 +5,7 @@
 <%= @cocktails.each do |cocktail| %>
 
 <div class="card" style="width: 18rem;">
-  <img src=" <%= cocktail.image %>" class="card-img-top" alt="...">
+  <img src=" <%= cocktail.image %>" class="card-img-top">
   <div class="card-body">
     <p class="card-text">
       <%= link_to cocktail.name, cocktail_path(cocktail.id) %>

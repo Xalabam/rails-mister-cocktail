@@ -1,0 +1,10 @@
+<h1>Set dose</h1>
+
+<%= simple_form_for [ @cocktail, @dose ] do |f| %>
+  <%= f.association :ingredient, input_html: { multiple: true, class: 'multiple-select' } %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to 'Back', cocktails_path %>
