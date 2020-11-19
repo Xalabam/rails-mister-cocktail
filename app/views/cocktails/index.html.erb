@@ -2,15 +2,25 @@
 
 <%= link_to 'New cocktail', new_cocktail_path %>
 
-<%= @cocktails.each do |cocktail| %>
+<div class="container">
+  <div class="row">
+    <%= @cocktails.each do |cocktail| %>
+      <div class="col-sm">
 
-<div class="card" style="width: 18rem;">
-  <img src=" <%= cocktail.image %>" class="card-img-top">
-  <div class="card-body">
-    <p class="card-text">
-      <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
-    </p>
+        <div class="card mb-3" style="width: 18rem;">
+          <img src=" <%= cocktail.image %>" class="card-img-top">
+          <div class="card-body">
+            <p class="card-text">
+              <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+    <% end %>
   </div>
 </div>
 
-<% end %>
+

@@ -4,4 +4,6 @@
 
 <%= link_to 'Set dose', new_cocktail_dose_path(@cocktail) %>
 
+<%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 <%= link_to 'Back', cocktails_path %>
