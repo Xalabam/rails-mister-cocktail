@@ -9,7 +9,7 @@
 cocktail_url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
 
 drink_list = open(cocktail_url).read
-cocktails = JSON.parse(drink_list)
+cocktails = JSON.parse(drink_list).first(11)
 cocktails['drinks'].each do |drink|
   Cocktail.create!(name: drink['strDrink'], image: drink['strDrinkThumb'])
 end

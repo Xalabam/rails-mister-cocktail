@@ -1,9 +1,39 @@
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)), url(https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2025&q=80);">
+  <div class='header d-flex justify-content-around mb-5 mx-4' style="height: 40px">
 <h1> <%= @cocktail.name %> </h1>
+  </div>
+</div>
 
-<img src="<%= @cocktail.image %>" alt="">
 
-<%= link_to 'Set dose', new_cocktail_dose_path(@cocktail) %>
+  <div class="container d-flex">
+    <img src="<%= @cocktail.image %>" style=" width: 350px">
 
-<%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% @cocktail.doses.each do |dose| %>
 
-<%= link_to 'Back', cocktails_path %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body" style="background-color: lightgrey">
+          <h5 class="card-title"><%= dose.ingredient.name %></h5>
+          <p class="card-text"><%= dose.description %></p>
+          <a href="#" class="card-link"><%= link_to 'Set dose', new_cocktail_dose_path(@cocktail) %></a>
+          <a href="#" class="card-link"><%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        </div>
+      </div>
+
+      <% end %>
+  </div>
+
+  <div class="footer">
+  <%= link_to 'Set dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-secondary' %>
+
+  <%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary mx-3' %>
+
+  <%= link_to 'Back', cocktails_path, class: 'btn btn-secondary' %>
+</div>
+
+
+
+
+
+

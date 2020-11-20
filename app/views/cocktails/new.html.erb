@@ -1,10 +1,18 @@
-<h1>New cocktail</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.8)), url(https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2025&q=80);">
+<div class="container">
+
+  <h1>New cocktail</h1>
 
 <%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.input :image %>
-  <%= f.button :submit %>
+   <p>Cocktail name</p> <%= f.input :name %>
+  <p>Image url</p><%= f.input :image %>
+  <%= f.button :submit, style: "background-color: white;" %>
 <% end %>
 
 
-<%= link_to 'Back', cocktails_path %>
+<%= link_to 'Back', cocktails_path, class: 'btn btn-secondary' %>
+
+
+</div>
+
+</div>
