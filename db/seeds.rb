@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Cocktail.destroy_all if Rails.env.development?
+Ingredient.destroy_all if Rails.env.development?
+
 cocktail_url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
 
 drink_list = open(cocktail_url).read
-cocktails = JSON.parse(drink_list).first(11)
-cocktails['drinks'].each do |drink|
+cocktails = JSON.parse(drink_list)
+cocktails['drinks'].first(11).each do |drink|
   Cocktail.create!(name: drink['strDrink'], image: drink['strDrinkThumb'])
 end
 
